@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+<div class="container stack">
+  {% include "partials/breadcrumbs.njk" %}
+  <article class="page-shell stack">
+    <header class="page-header stack-sm">
+      <p class="eyebrow">{{ pageType or "Page" }}</p>
+      <h1>{{ title }}</h1>
+      {% if summary %}
+      <p class="lede">{{ summary }}</p>
+      {% endif %}
+    </header>
+    <div class="stack">
+      {{ content | safe }}
+    </div>
+  </article>
+</div>

@@ -1,0 +1,43 @@
+---
+layout: layouts/page.njk
+pageType: Resource
+---
+<section class="stack-lg">
+  <div class="meta-row">
+    {% if resourceType %}<span>{{ resourceType | resourceTypeLabel }}</span>{% endif %}
+    {% if audience %}<span>{{ audience | join(", ") }}</span>{% endif %}
+  </div>
+
+  <section class="stack">
+    <h2>Overview</h2>
+    <p>{{ summary or "This resource entry can point to a hosted file, external link, or native summary." }}</p>
+  </section>
+
+  {% if topicRefs %}
+  <section class="stack">
+    <h2>Related Topics</h2>
+    <ul class="link-list">
+      {% for topicSlug in topicRefs %}
+      {% set topicItem = collections.topics | findBySlug(topicSlug) %}
+      {% if topicItem %}
+      <li><a href="{{ topicItem.url }}">{{ topicItem.data.title }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if pearlRefs %}
+  <section class="stack">
+    <h2>Related Clinical Pearls</h2>
+    <ul class="link-list">
+      {% for pearlSlug in pearlRefs %}
+      {% set pearlItem = collections.pearls | findBySlug(pearlSlug) %}
+      {% if pearlItem %}
+      <li><a href="{{ pearlItem.url }}">{{ pearlItem.data.title }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</section>

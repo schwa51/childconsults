@@ -1,0 +1,16 @@
+---
+layout: layouts/page.njk
+pageType: Section
+---
+{% if listingCollection == "pearls" %}
+  {% set topicItems = collections.pearls %}
+{% else %}
+  {% set topicItems = collections[listingCollection] %}
+{% endif %}
+<section class="stack">
+  <div class="card-grid">
+    {% for item in topicItems %}
+    {% include "partials/topic-card.njk" %}
+    {% endfor %}
+  </div>
+</section>

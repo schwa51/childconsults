@@ -1,0 +1,63 @@
+---
+layout: layouts/page.njk
+pageType: Topic
+---
+{% set relatedResources = collections.resources | whereIncludes("topicRefs", slug) %}
+
+<section class="stack-lg">
+  <div class="meta-row">
+    {% if reviewTime %}<span>{{ reviewTime }}</span>{% endif %}
+    {% if audience %}<span>{{ audience | join(", ") }}</span>{% endif %}
+    {% if updated %}<span>Updated {{ updated }}</span>{% endif %}
+  </div>
+
+  <section class="stack">
+    <h2>Quick Summary</h2>
+    {% if quickSummary %}
+    <ul class="clean-list">
+      {% for item in quickSummary %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>This page will include a concise consult-oriented summary.</p>
+    {% endif %}
+  </section>
+
+  <section class="stack">
+    <h2>Resources</h2>
+    {% include "partials/resource-list.njk" %}
+  </section>
+
+  <section class="stack">
+    <h2>Practice Questions</h2>
+    {% if practiceQuestions %}
+    <ul class="clean-list">
+      {% for question in practiceQuestions %}
+      <li>{{ question }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Practice questions can be added here for quick self-check learning.</p>
+    {% endif %}
+  </section>
+
+  <section class="stack">
+    <h2>Archived Teaching</h2>
+    <p>Past teaching materials related to this topic will appear here as resources, not as a separate site section.</p>
+  </section>
+
+  {% if relatedPearls %}
+  <section class="stack">
+    <h2>Related Clinical Pearls</h2>
+    <ul class="link-list">
+      {% for pearlSlug in relatedPearls %}
+      {% set pearlItem = collections.pearls | findBySlug(pearlSlug) %}
+      {% if pearlItem %}
+      <li><a href="{{ pearlItem.url }}">{{ pearlItem.data.title }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</section>

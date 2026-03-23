@@ -1,0 +1,169 @@
+:root {
+  --bg: #fcfcfa;
+  --surface: #ffffff;
+  --border: #d9ddd7;
+  --text: #1f2a24;
+  --muted: #5d6b63;
+  --accent: #2b5c4d;
+  --max: 72rem;
+  --radius: 14px;
+  --space: 1rem;
+  --space-lg: 2rem;
+  --font: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--max));
+  margin: 0 auto;
+}
+
+.site-header,
+.site-footer {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+  margin-top: 3rem;
+}
+
+.site-header__inner {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-list,
+.breadcrumbs ol,
+.clean-list,
+.link-list,
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.site-main {
+  padding: 2rem 0;
+}
+
+.stack > * + *,
+.stack-lg > * + * {
+  margin-top: var(--space);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-lg);
+}
+
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
+
+.page-shell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.eyebrow,
+.muted,
+.resource-meta,
+.breadcrumbs,
+.meta-row {
+  color: var(--muted);
+}
+
+.lede {
+  max-width: 60ch;
+  font-size: 1.1rem;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.card,
+.filters-shell {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.resource-item {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.resource-item:last-child {
+  border-bottom: 0;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.5rem;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+@media (max-width: 640px) {
+  .site-main {
+    padding: 1rem 0;
+  }
+
+  .page-shell {
+    padding: 1rem;
+  }
+}

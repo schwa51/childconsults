@@ -1,0 +1,6 @@
+<article class="card">
+  <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+  {% if item.data.summary %}
+  <p>{{ item.data.summary }}</p>
+  {% endif %}
+</article>

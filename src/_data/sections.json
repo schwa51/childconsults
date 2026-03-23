@@ -1,0 +1,22 @@
+[
+  {
+    "key": "safety-risk",
+    "title": "Safety & Risk",
+    "description": "High-yield approaches to risk evaluation, immediate safety planning, and bedside decision-making."
+  },
+  {
+    "key": "acute-presentations",
+    "title": "Acute Presentations",
+    "description": "Rapid reviews for common consult presentations and urgent inpatient questions."
+  },
+  {
+    "key": "core-diagnostic-topics",
+    "title": "Core Diagnostic Topics",
+    "description": "Diagnosis-centered teaching pages for common child and adolescent psychiatry problems."
+  },
+  {
+    "key": "neurodevelopment-learning",
+    "title": "Neurodevelopmental & Learning",
+    "description": "Developmental and learning topics frequently encountered in consult settings."
+  }
+]

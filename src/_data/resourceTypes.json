@@ -1,0 +1,7 @@
+[
+  { "key": "summary", "label": "Text summaries" },
+  { "key": "pdf", "label": "PDFs" },
+  { "key": "slides", "label": "PowerPoints" },
+  { "key": "handout", "label": "Handouts" },
+  { "key": "link", "label": "Links" }
+]

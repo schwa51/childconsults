@@ -1,0 +1,16 @@
+---
+layout: layouts/page.njk
+pageType: Resource Library
+---
+<section class="stack-lg">
+  <div class="filters-shell">
+    <p><strong>Planned filters:</strong> topic, resource type, and audience.</p>
+    <p class="muted">This scaffold is ready for a small client-side filter or search layer later.</p>
+  </div>
+
+  <section class="stack">
+    <h2>All Resources</h2>
+    {% set relatedResources = collections.resources %}
+    {% include "partials/resource-list.njk" %}
+  </section>
+</section>

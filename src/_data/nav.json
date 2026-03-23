@@ -1,0 +1,11 @@
+[
+  { "label": "Home", "url": "/" },
+  { "label": "Start Here", "url": "/start-here/" },
+  { "label": "Safety & Risk", "url": "/safety-risk/" },
+  { "label": "Acute Presentations", "url": "/acute-presentations/" },
+  { "label": "Core Diagnostic Topics", "url": "/core-diagnostic-topics/" },
+  { "label": "Neurodevelopmental & Learning", "url": "/neurodevelopment-learning/" },
+  { "label": "Clinical Pearls", "url": "/clinical-pearls/" },
+  { "label": "Quizzes", "url": "/quizzes/" },
+  { "label": "All Resources", "url": "/all-resources/" }
+]

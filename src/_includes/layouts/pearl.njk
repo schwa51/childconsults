@@ -1,0 +1,43 @@
+---
+layout: layouts/page.njk
+pageType: Clinical Pearl
+---
+{% set relatedResources = collections.resources | whereIncludes("pearlRefs", slug) %}
+<section class="stack-lg">
+  <div class="meta-row">
+    {% if pearlType %}<span>{{ pearlType }}</span>{% endif %}
+    {% if updated %}<span>Updated {{ updated }}</span>{% endif %}
+  </div>
+
+  <section class="stack">
+    <h2>Bottom Line</h2>
+    {% if bottomLine %}
+    <ul class="clean-list">
+      {% for item in bottomLine %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>This pearl will summarize the key practical teaching points.</p>
+    {% endif %}
+  </section>
+
+  <section class="stack">
+    <h2>Related Resources</h2>
+    {% include "partials/resource-list.njk" %}
+  </section>
+
+  {% if relatedTopics %}
+  <section class="stack">
+    <h2>Related Topics</h2>
+    <ul class="link-list">
+      {% for topicSlug in relatedTopics %}
+      {% set topicItem = collections.topics | findBySlug(topicSlug) %}
+      {% if topicItem %}
+      <li><a href="{{ topicItem.url }}">{{ topicItem.data.title }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</section>

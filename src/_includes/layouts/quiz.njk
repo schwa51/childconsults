@@ -1,0 +1,31 @@
+---
+layout: layouts/page.njk
+pageType: Quiz
+---
+<section class="stack-lg">
+  <div class="meta-row">
+    {% if quizType %}<span>{{ quizType }}</span>{% endif %}
+    {% if updated %}<span>Updated {{ updated }}</span>{% endif %}
+  </div>
+  <section class="stack">
+    <h2>Overview</h2>
+    <p>{{ summary or "This quiz page will support a simple public self-check experience." }}</p>
+  </section>
+  <section class="stack">
+    <h2>Questions</h2>
+    <p>Question content or an embedded external quiz can be added here later.</p>
+  </section>
+  {% if relatedTopics %}
+  <section class="stack">
+    <h2>Related Topics</h2>
+    <ul class="link-list">
+      {% for topicSlug in relatedTopics %}
+      {% set topicItem = collections.topics | findBySlug(topicSlug) %}
+      {% if topicItem %}
+      <li><a href="{{ topicItem.url }}">{{ topicItem.data.title }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</section>

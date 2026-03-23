@@ -1,0 +1,15 @@
+{% if relatedResources.length %}
+<ul class="resource-list">
+  {% for resource in relatedResources %}
+  <li class="resource-item">
+    <a href="{{ resource.url }}">{{ resource.data.title }}</a>
+    <span class="resource-meta">{{ resource.data.resourceType | resourceTypeLabel }}</span>
+    {% if resource.data.audience %}
+    <span class="resource-meta">{{ resource.data.audience | join(", ") }}</span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No resources added yet.</p>
+{% endif %}

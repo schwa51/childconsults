@@ -1,0 +1,3 @@
+window.CAPSite = {
+  searchIndexReady: false
+};
