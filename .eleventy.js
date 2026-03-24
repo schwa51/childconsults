@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  const isDirectoryIndex = (item) => item.inputPath.endsWith("/index.md");
 
   eleventyConfig.addCollection("sections", function (collectionApi) {
     return collectionApi.getFilteredByTag("section").sort((a, b) => {
@@ -10,7 +11,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("topics", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("topic")
-      .filter((item) => item.fileSlug !== "index")
+      .filter((item) => !isDirectoryIndex(item))
       .sort((a, b) => {
         return a.data.title.localeCompare(b.data.title);
       });
@@ -19,7 +20,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("pearls", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("pearl")
-      .filter((item) => item.fileSlug !== "index")
+      .filter((item) => !isDirectoryIndex(item))
       .sort((a, b) => {
         return a.data.title.localeCompare(b.data.title);
       });
@@ -28,7 +29,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("quizzes", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("quiz")
-      .filter((item) => item.fileSlug !== "index")
+      .filter((item) => !isDirectoryIndex(item))
       .sort((a, b) => {
         return (a.data.quizOrder || 0) - (b.data.quizOrder || 0);
       });
@@ -51,7 +52,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection(name, function (collectionApi) {
       return collectionApi
         .getFilteredByTag("topic")
-        .filter((item) => item.fileSlug !== "index" && item.data.sectionKey === section);
+        .filter((item) => !isDirectoryIndex(item) && item.data.sectionKey === section);
     });
   });
 

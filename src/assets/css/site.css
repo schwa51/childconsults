@@ -51,11 +51,22 @@ a {
   padding: 1rem 0;
 }
 
+.site-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .brand {
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
   color: var(--text);
+}
+
+.site-nav {
+  min-width: 0;
 }
 
 .nav-list,
@@ -72,6 +83,41 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
+}
+
+.nav-list a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.2rem;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.55rem 0.85rem;
+  font: inherit;
+}
+
+.menu-toggle__icon {
+  display: inline-block;
+  width: 1rem;
+  height: 0.75rem;
+  background:
+    linear-gradient(var(--text), var(--text)) top center / 100% 2px no-repeat,
+    linear-gradient(var(--text), var(--text)) center center / 100% 2px no-repeat,
+    linear-gradient(var(--text), var(--text)) bottom center / 100% 2px no-repeat;
 }
 
 .site-main {
@@ -179,5 +225,23 @@ a {
 
   .page-shell {
     padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
   }
 }

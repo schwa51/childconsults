@@ -2,8 +2,8 @@
 layout: layouts/base.njk
 ---
 <div class="container stack">
-  {% set renderBreadcrumbs = showBreadcrumbs if showBreadcrumbs is defined else true %}
-  {% set renderEyebrow = showEyebrow if showEyebrow is defined else true %}
+  {% set renderBreadcrumbs = showBreadcrumbs if showBreadcrumbs is defined else false %}
+  {% set renderEyebrow = showEyebrow if showEyebrow is defined else false %}
   {% set renderTitle = showTitle if showTitle is defined else true %}
   {% set renderHeader = renderEyebrow or renderTitle or summary %}
 
