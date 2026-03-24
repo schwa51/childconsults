@@ -8,21 +8,30 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("topics", function (collectionApi) {
-    return collectionApi.getFilteredByTag("topic").sort((a, b) => {
-      return a.data.title.localeCompare(b.data.title);
-    });
+    return collectionApi
+      .getFilteredByTag("topic")
+      .filter((item) => item.fileSlug !== "index")
+      .sort((a, b) => {
+        return a.data.title.localeCompare(b.data.title);
+      });
   });
 
   eleventyConfig.addCollection("pearls", function (collectionApi) {
-    return collectionApi.getFilteredByTag("pearl").sort((a, b) => {
-      return a.data.title.localeCompare(b.data.title);
-    });
+    return collectionApi
+      .getFilteredByTag("pearl")
+      .filter((item) => item.fileSlug !== "index")
+      .sort((a, b) => {
+        return a.data.title.localeCompare(b.data.title);
+      });
   });
 
   eleventyConfig.addCollection("quizzes", function (collectionApi) {
-    return collectionApi.getFilteredByTag("quiz").sort((a, b) => {
-      return (a.data.quizOrder || 0) - (b.data.quizOrder || 0);
-    });
+    return collectionApi
+      .getFilteredByTag("quiz")
+      .filter((item) => item.fileSlug !== "index")
+      .sort((a, b) => {
+        return (a.data.quizOrder || 0) - (b.data.quizOrder || 0);
+      });
   });
 
   eleventyConfig.addCollection("resources", function (collectionApi) {
@@ -40,7 +49,9 @@ module.exports = function (eleventyConfig) {
 
   topicCollections.forEach(([name, section]) => {
     eleventyConfig.addCollection(name, function (collectionApi) {
-      return collectionApi.getFilteredByTag("topic").filter((item) => item.data.sectionKey === section);
+      return collectionApi
+        .getFilteredByTag("topic")
+        .filter((item) => item.fileSlug !== "index" && item.data.sectionKey === section);
     });
   });
 

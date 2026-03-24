@@ -3,8 +3,9 @@ title: Home
 layout: layouts/page.njk
 pageType: Home
 summary: Quick, public, topic-based learning for child and adolescent psychiatry consultation.
-breadcrumbs:
-  - label: Home
+showBreadcrumbs: false
+showEyebrow: false
+showTitle: false
 ---
 ## Explore by topic
 

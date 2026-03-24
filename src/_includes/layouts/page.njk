@@ -2,15 +2,28 @@
 layout: layouts/base.njk
 ---
 <div class="container stack">
+  {% set renderBreadcrumbs = showBreadcrumbs if showBreadcrumbs is defined else true %}
+  {% set renderEyebrow = showEyebrow if showEyebrow is defined else true %}
+  {% set renderTitle = showTitle if showTitle is defined else true %}
+  {% set renderHeader = renderEyebrow or renderTitle or summary %}
+
+  {% if renderBreadcrumbs %}
   {% include "partials/breadcrumbs.njk" %}
+  {% endif %}
   <article class="page-shell stack">
+    {% if renderHeader %}
     <header class="page-header stack-sm">
+      {% if renderEyebrow %}
       <p class="eyebrow">{{ pageType or "Page" }}</p>
+      {% endif %}
+      {% if renderTitle %}
       <h1>{{ title }}</h1>
+      {% endif %}
       {% if summary %}
       <p class="lede">{{ summary }}</p>
       {% endif %}
     </header>
+    {% endif %}
     <div class="stack">
       {{ content | safe }}
     </div>
