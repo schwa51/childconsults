@@ -6,6 +6,11 @@
     <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ description or site.description }}">
     <link rel="stylesheet" href="/assets/css/site.css">
+    {% if extraStylesheets %}
+      {% for stylesheet in extraStylesheets %}
+    <link rel="stylesheet" href="{{ stylesheet }}">
+      {% endfor %}
+    {% endif %}
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     {% include "partials/header.njk" %}
@@ -14,5 +19,10 @@
     </main>
     {% include "partials/footer.njk" %}
     <script src="/assets/js/site.js" defer></script>
+    {% if extraScripts %}
+      {% for script in extraScripts %}
+    <script src="{{ script }}" defer></script>
+      {% endfor %}
+    {% endif %}
   </body>
 </html>

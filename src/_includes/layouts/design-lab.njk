@@ -1,0 +1,205 @@
+---
+layout: layouts/base.njk
+extraStylesheets:
+  - /assets/css/design-lab.css
+extraScripts:
+  - /assets/js/design-lab.js
+bodyClass: design-lab-page
+---
+{% set heroTopic = collections.topics | findBySlug("depression") %}
+{% set teachingTopic = collections.topics | findBySlug("agitation") %}
+{% set safetyTopic = collections.topics | findBySlug("safety-assessment") %}
+{% set frameworkPearl = collections.pearls | findBySlug("four-pillars") %}
+{% set diagnosisPearl = collections.pearls | findBySlug("diagnosis-framework") %}
+{% set featuredResources = collections.resources | whereIncludes("topicRefs", "agitation") %}
+
+<div class="lab-shell">
+  <section class="lab-intro container" data-reveal>
+    <p class="lab-kicker">Design Exploration</p>
+    <h1>{{ title }}</h1>
+    <p class="lab-intro__lede">{{ summary }}</p>
+    <p class="lab-intro__meta">Each theme uses the same Child Consults sample content so collaborators can compare visual systems, not different information.</p>
+  </section>
+
+  <section class="container" data-reveal>
+    <div class="lab-switcher" role="group" aria-label="Theme switcher">
+      <button class="lab-switcher__button is-active" type="button" data-theme-option="warm-editorial" aria-pressed="true">Theme 1: Warm Editorial</button>
+      <button class="lab-switcher__button" type="button" data-theme-option="modern-fresh" aria-pressed="false">Theme 2: Modern Fresh</button>
+      <button class="lab-switcher__button" type="button" data-theme-option="bold-refined" aria-pressed="false">Theme 3: Bold Refined</button>
+    </div>
+  </section>
+
+  <div class="design-lab container" data-theme="warm-editorial" id="design-lab">
+    <section class="lab-preview" data-reveal>
+      <header class="lab-preview__header">
+        <div class="lab-preview__brand">
+          <span class="lab-preview__eyebrow">Child Consults</span>
+          <span class="lab-preview__name">{{ site.title }}</span>
+        </div>
+        <nav class="lab-preview__nav" aria-label="Preview navigation">
+          <a href="#hero">Home</a>
+          <a href="#topic-summary">Topic Summary</a>
+          <a href="#modules">Modules</a>
+          <a href="#pearls">Clinical Pearls</a>
+          <a href="#teaching">Teaching</a>
+        </nav>
+      </header>
+
+      <section class="lab-hero lab-section" id="hero">
+        <div class="lab-hero__copy" data-reveal>
+          <p class="lab-kicker">Independent CAP consult teaching</p>
+          <h2>{{ site.title }}</h2>
+          <p class="lab-hero__lede">{{ site.description }}</p>
+          <div class="lab-hero__actions">
+            <a class="lab-button" href="/core-diagnostic-topics/">Browse Topics</a>
+            <a class="lab-link" href="/clinical-pearls/">See Clinical Pearls</a>
+          </div>
+        </div>
+        <div class="lab-hero__panel" data-reveal>
+          <div class="lab-stat-grid">
+            <article class="lab-stat">
+              <span class="lab-stat__value">{{ collections.topics | length }}</span>
+              <span class="lab-stat__label">topic pages</span>
+            </article>
+            <article class="lab-stat">
+              <span class="lab-stat__value">{{ collections.pearls | length }}</span>
+              <span class="lab-stat__label">clinical pearls</span>
+            </article>
+            <article class="lab-stat">
+              <span class="lab-stat__value">10–20</span>
+              <span class="lab-stat__label">minute reviews</span>
+            </article>
+          </div>
+          <blockquote class="lab-pullquote">
+            “Quick, public, topic-based learning for child and adolescent psychiatry consultation.”
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="lab-section lab-section--split" id="topic-summary">
+        <div class="lab-section__heading" data-reveal>
+          <p class="lab-kicker">Topic summary</p>
+          <h3>{{ heroTopic.data.title }}</h3>
+          <p>{{ heroTopic.data.summary }}</p>
+        </div>
+        <div class="lab-summary-grid">
+          <article class="lab-summary-card" data-reveal>
+            <h4>Quick consult review</h4>
+            <ul class="lab-list">
+              {% for item in heroTopic.data.quickSummary %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+          <aside class="lab-sidebar-card" data-reveal>
+            <p class="lab-sidebar-card__label">Sidebar treatment</p>
+            <nav class="lab-subnav" aria-label="Sample subnavigation">
+              <a href="#hero">Overview</a>
+              <a href="#modules">Core modules</a>
+              <a href="#pearls">Related pearls</a>
+              <a href="#teaching">Teaching format</a>
+              <a href="#closing">Closing CTA</a>
+            </nav>
+          </aside>
+        </div>
+      </section>
+
+      <section class="lab-section" id="modules">
+        <div class="lab-section__heading" data-reveal>
+          <p class="lab-kicker">Featured modules</p>
+          <h3>Core diagnostic topics</h3>
+          <p>Real site topics presented as a potential future homepage or section landing treatment.</p>
+        </div>
+        <div class="lab-module-grid">
+          {% for item in collections.coreDiagnosticTopics %}
+          {% if loop.index <= 6 %}
+          <article class="lab-module-card" data-reveal>
+            <p class="lab-module-card__meta">Topic {{ loop.index }}</p>
+            <h4><a href="{{ item.url }}">{{ item.data.title }}</a></h4>
+            <p>{{ item.data.summary }}</p>
+          </article>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="lab-section lab-section--offset" id="pearls">
+        <div class="lab-section__heading" data-reveal>
+          <p class="lab-kicker">Clinical pearls preview</p>
+          <h3>Cross-cutting practical references</h3>
+          <p>Short, linkable reference pages that can support multiple consult topics.</p>
+        </div>
+        <div class="lab-pearl-stack">
+          {% for pearl in collections.pearls %}
+          {% if loop.index <= 3 %}
+          <article class="lab-pearl-card" data-reveal>
+            <p class="lab-pearl-card__type">{{ pearl.data.pearlType }}</p>
+            <h4><a href="{{ pearl.url }}">{{ pearl.data.title }}</a></h4>
+            <p>{{ pearl.data.summary }}</p>
+          </article>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="lab-section lab-section--teaching" id="teaching">
+        <div class="lab-teaching-layout">
+          <div class="lab-teaching-main" data-reveal>
+            <p class="lab-kicker">Sample teaching module</p>
+            <h3>{{ teachingTopic.data.title }}</h3>
+            <p class="lab-teaching-main__lede">{{ teachingTopic.data.summary }}</p>
+            <ul class="lab-list">
+              {% for item in teachingTopic.data.quickSummary %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <aside class="lab-teaching-side" data-reveal>
+            <article class="lab-mini-card">
+              <p class="lab-mini-card__label">Related pearl</p>
+              <h4>{{ frameworkPearl.data.title }}</h4>
+              <ul class="lab-list lab-list--tight">
+                {% for item in frameworkPearl.data.bottomLine %}
+                <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </article>
+            <article class="lab-mini-card">
+              <p class="lab-mini-card__label">Practice prompt</p>
+              <p>{{ safetyTopic.data.practiceQuestions[0] }}</p>
+            </article>
+            <article class="lab-mini-card">
+              <p class="lab-mini-card__label">Resource stack</p>
+              <ul class="lab-link-list">
+                {% for resource in featuredResources %}
+                <li><a href="{{ resource.url }}">{{ resource.data.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="lab-section lab-section--quote" data-reveal>
+        <blockquote class="lab-quote">
+          <p>“The site should feel like a thoughtfully designed editorial learning environment: modern, surprising in a good way, and genuinely usable.”</p>
+          <cite>Design goal for Child Consults</cite>
+        </blockquote>
+      </section>
+
+      <section class="lab-section lab-section--closing" id="closing" data-reveal>
+        <div class="lab-closing">
+          <div>
+            <p class="lab-kicker">Closing CTA</p>
+            <h3>Choose a direction worth developing</h3>
+            <p>Each system is built from the same components and content so the team can evaluate tone, readability, and distinctiveness before production styling changes begin.</p>
+          </div>
+          <div class="lab-closing__actions">
+            <a class="lab-button" href="/theme-previews/">Compare earlier previews</a>
+            <a class="lab-link" href="{{ diagnosisPearl.url }}">Open a real pearl page</a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div>
