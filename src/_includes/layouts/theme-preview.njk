@@ -1,0 +1,19 @@
+---
+layout: layouts/page.njk
+showEyebrow: false
+showBreadcrumbs: false
+---
+<section class="stack-lg">
+  <div class="theme-preview-note">
+    <p><strong>{{ previewLabel }}</strong></p>
+    <p>{{ previewDescription }}</p>
+  </div>
+
+  <section class="stack">
+    <div class="card-grid">
+      {% for item in collections.coreDiagnosticTopics %}
+      {% include "partials/topic-card.njk" %}
+      {% endfor %}
+    </div>
+  </section>
+</section>
