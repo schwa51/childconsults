@@ -1,10 +1,14 @@
 :root {
-  --bg: #fcfcfa;
-  --surface: #ffffff;
-  --border: #d9ddd7;
-  --text: #1f2a24;
-  --muted: #5d6b63;
-  --accent: #2b5c4d;
+  --bg: #ebe9da;
+  --surface: #f6f2e7;
+  --surface-strong: #fffdf7;
+  --border: #c9c0ac;
+  --border-strong: #b5aa93;
+  --text: #435164;
+  --muted: #697687;
+  --accent: #995400;
+  --accent-soft: #c9832b;
+  --accent-wash: #f2dfc8;
   --max: 72rem;
   --radius: 14px;
   --space: 1rem;
@@ -28,6 +32,10 @@ a {
   color: var(--accent);
 }
 
+a:hover {
+  color: var(--accent-soft);
+}
+
 .container {
   width: min(calc(100% - 2rem), var(--max));
   margin: 0 auto;
@@ -37,6 +45,7 @@ a {
 .site-footer {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(67, 81, 100, 0.04);
 }
 
 .site-footer {
@@ -63,6 +72,7 @@ a {
   font-weight: 700;
   text-decoration: none;
   color: var(--text);
+  letter-spacing: 0.01em;
 }
 
 .site-nav {
@@ -102,9 +112,9 @@ a {
   display: none;
   align-items: center;
   gap: 0.6rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  background: var(--surface);
+  background: var(--surface-strong);
   color: var(--text);
   padding: 0.55rem 0.85rem;
   font: inherit;
@@ -138,10 +148,11 @@ a {
 }
 
 .page-shell {
-  background: var(--surface);
+  background: var(--surface-strong);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
+  box-shadow: 0 18px 30px rgba(67, 81, 100, 0.06);
 }
 
 .page-header h1 {
@@ -170,8 +181,8 @@ a {
 
 .card,
 .filters-shell {
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 1rem;
   min-width: 0;
@@ -188,6 +199,14 @@ a {
 .card h2 {
   line-height: 1.2;
   margin-top: 0;
+}
+
+.card a {
+  text-decoration-color: rgba(153, 84, 0, 0.4);
+}
+
+.card a:hover {
+  text-decoration-color: var(--accent);
 }
 
 .resource-item {
@@ -216,6 +235,11 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
+}
+
+::selection {
+  background: var(--accent-wash);
+  color: var(--text);
 }
 
 @media (max-width: 640px) {
