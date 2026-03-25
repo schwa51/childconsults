@@ -694,6 +694,10 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.design-lab[data-theme="bold-refined"] .lab-module-card {
+  background: linear-gradient(135deg, rgba(255, 125, 92, 0.16), rgba(43, 33, 66, 0.92));
+}
+
 .design-lab[data-theme="bold-refined"] .lab-module-card:nth-child(1) {
   grid-row: span 2;
   min-height: 20rem;
