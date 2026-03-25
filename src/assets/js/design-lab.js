@@ -1,6 +1,8 @@
 (function () {
   const lab = document.querySelector("#design-lab");
   const switcherButtons = document.querySelectorAll("[data-theme-option]");
+  const previewMenuToggle = document.querySelector(".lab-preview__menu-toggle");
+  const previewMenu = document.querySelector(".lab-preview__nav");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const themeStorageKey = "child-consults-design-lab-theme";
 
@@ -39,6 +41,13 @@
       setTheme(button.dataset.themeOption);
     });
   });
+
+  if (previewMenuToggle && previewMenu) {
+    previewMenuToggle.addEventListener("click", () => {
+      const isOpen = previewMenu.classList.toggle("is-open");
+      previewMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
 
   const revealTargets = lab.querySelectorAll("[data-reveal]");
 

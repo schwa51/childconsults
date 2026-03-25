@@ -36,7 +36,11 @@ bodyClass: design-lab-page
           <span class="lab-preview__eyebrow">Child Consults</span>
           <span class="lab-preview__name">{{ site.title }}</span>
         </div>
-        <nav class="lab-preview__nav" aria-label="Preview navigation">
+        <button class="lab-preview__menu-toggle" type="button" aria-expanded="false" aria-controls="lab-preview-nav">
+          <span>Menu</span>
+          <span class="lab-preview__menu-icon" aria-hidden="true"></span>
+        </button>
+        <nav class="lab-preview__nav" id="lab-preview-nav" aria-label="Preview navigation">
           <a href="#hero">Home</a>
           <a href="#topic-summary">Topic Summary</a>
           <a href="#modules">Modules</a>
