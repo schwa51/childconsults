@@ -418,6 +418,19 @@
   overflow: hidden;
 }
 
+.lab-card-link {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lab-card-link:focus-visible {
+  outline: 2px solid var(--lab-text);
+  outline-offset: 4px;
+}
+
 .lab-module-card::after,
 .lab-pearl-card::after {
   content: "";
@@ -679,34 +692,32 @@
   background: #fbeab4;
 }
 
-.design-lab[data-theme="modern-fresh"] .lab-module-card {
-  background: #ffffff;
-}
-
-.design-lab[data-theme="modern-fresh"] .lab-module-card:nth-child(2),
-.design-lab[data-theme="modern-fresh"] .lab-module-card:nth-child(5) {
-  background: #e7c1bf;
-}
-
-.design-lab[data-theme="modern-fresh"] .lab-module-card:nth-child(3),
-.design-lab[data-theme="modern-fresh"] .lab-module-card:nth-child(6) {
+.design-lab[data-theme="modern-fresh"] #topic-summary {
   background: #dff2d3;
 }
 
-.design-lab[data-theme="modern-fresh"] .lab-module-card:nth-child(4) {
+.design-lab[data-theme="modern-fresh"] #modules {
+  background: #fdf6e0;
+}
+
+.design-lab[data-theme="modern-fresh"] #pearls {
+  background: #e7c1bf;
+}
+
+.design-lab[data-theme="modern-fresh"] #teaching {
   background: #d6dff1;
 }
 
-.design-lab[data-theme="modern-fresh"] .lab-pearl-card:nth-child(1) {
-  background: #ffffff;
+.design-lab[data-theme="modern-fresh"] #closing {
+  background: #212121;
 }
 
-.design-lab[data-theme="modern-fresh"] .lab-pearl-card:nth-child(2) {
+.design-lab[data-theme="modern-fresh"] .lab-module-card {
   background: #fbeab4;
 }
 
-.design-lab[data-theme="modern-fresh"] .lab-pearl-card:nth-child(3) {
-  background: #e7c1bf;
+.design-lab[data-theme="modern-fresh"] .lab-pearl-card {
+  background: #fdf6e0;
 }
 
 .design-lab[data-theme="modern-fresh"] .lab-mini-card:nth-child(1) {
@@ -738,6 +749,12 @@
 .design-lab[data-theme="modern-fresh"] .lab-closing .lab-kicker,
 .design-lab[data-theme="modern-fresh"] .lab-closing .lab-link {
   color: #afc0e5;
+}
+
+.design-lab[data-theme="modern-fresh"] .lab-card-link:hover h4,
+.design-lab[data-theme="modern-fresh"] .lab-card-link:focus-visible h4 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .design-lab[data-theme="bold-refined"] {

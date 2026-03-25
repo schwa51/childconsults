@@ -118,9 +118,11 @@ bodyClass: design-lab-page
           {% for item in collections.coreDiagnosticTopics %}
           {% if loop.index <= 6 %}
           <article class="lab-module-card" data-reveal>
-            <p class="lab-module-card__meta">Topic {{ loop.index }}</p>
-            <h4><a href="{{ item.url }}">{{ item.data.title }}</a></h4>
-            <p>{{ item.data.summary }}</p>
+            <a class="lab-card-link" href="{{ item.url }}">
+              <p class="lab-module-card__meta">Topic {{ loop.index }}</p>
+              <h4>{{ item.data.title }}</h4>
+              <p>{{ item.data.summary }}</p>
+            </a>
           </article>
           {% endif %}
           {% endfor %}
@@ -137,9 +139,11 @@ bodyClass: design-lab-page
           {% for pearl in collections.pearls %}
           {% if loop.index <= 3 %}
           <article class="lab-pearl-card" data-reveal>
-            <p class="lab-pearl-card__type">{{ pearl.data.pearlType }}</p>
-            <h4><a href="{{ pearl.url }}">{{ pearl.data.title }}</a></h4>
-            <p>{{ pearl.data.summary }}</p>
+            <a class="lab-card-link" href="{{ pearl.url }}">
+              <p class="lab-pearl-card__type">{{ pearl.data.pearlType }}</p>
+              <h4>{{ pearl.data.title }}</h4>
+              <p>{{ pearl.data.summary }}</p>
+            </a>
           </article>
           {% endif %}
           {% endfor %}
