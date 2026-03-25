@@ -426,8 +426,8 @@
   width: 9rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--lab-accent) 18%, transparent);
-  filter: blur(3px);
+  /* background: color-mix(in srgb, var(--lab-accent) 18%, transparent);
+  filter: blur(3px); */
 }
 
 .lab-pearl-stack {
