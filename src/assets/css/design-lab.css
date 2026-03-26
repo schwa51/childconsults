@@ -553,8 +553,7 @@
   --lab-panel: #ffffff;
   --lab-border: rgba(13, 13, 13, 0.1);
   --lab-border-strong: rgba(13, 13, 13, 0.18);
-  /* --lab-text: #0d0d0d; */
-  --lab-text: #4C5A6C;
+  --lab-text: #0d0d0d;
   --lab-muted: rgba(13, 13, 13, 0.62);
   --lab-accent: #0d0d0d;
   --lab-accent-soft: #f9f9f9;
@@ -645,22 +644,17 @@
 }
 
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] {
- /*  --lab-bg: #0d0d0d;
+ /--lab-bg: #0d0d0d;
   --lab-bg: #4C5A6C;
   --lab-surface: #121212;
   --lab-surface-strong: #171717;
-  --lab-panel: #121212; */
-  --lab-bg: #4C5A6C;
-  --lab-surface: #4C5A6C;
-  --lab-surface-strong: #4C5A6C;
-  --lab-panel: #4C5A6C; 
+  --lab-panel: #121212;
   --lab-border: rgba(255, 255, 255, 0.1);
   --lab-border-strong: rgba(255, 255, 255, 0.16);
   --lab-text: #ffffff;
   --lab-muted: rgba(255, 255, 255, 0.68);
   --lab-accent: #ffffff;
-  --lab-accent-soft: #4C5A6C;
-  /* --lab-accent-soft: #1d1d1d; */
+  --lab-accent-soft: #1d1d1d;
   --lab-shadow: none;
 }
 
@@ -673,8 +667,7 @@
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-pearl-card,
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-mini-card,
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-closing {
-  /*  background: #121212; */
-  background: #4C5A6C;
+  background: #121212; 
 }
 
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-section--teaching {
