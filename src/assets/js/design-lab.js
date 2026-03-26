@@ -1,14 +1,33 @@
 (function () {
   const lab = document.querySelector("#design-lab");
   const switcherButtons = document.querySelectorAll("[data-theme-option]");
+  const themeModeToggle = document.querySelector("[data-theme-mode-toggle]");
   const previewMenuToggle = document.querySelector(".lab-preview__menu-toggle");
   const previewMenu = document.querySelector(".lab-preview__nav");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const themeStorageKey = "child-consults-design-lab-theme";
+  const themeModeStorageKey = "child-consults-design-lab-theme1-mode";
 
   if (!lab || !switcherButtons.length) {
     return;
   }
+
+  const setThemeMode = (mode) => {
+    const nextMode = mode === "dark" ? "dark" : "light";
+    lab.dataset.themeMode = nextMode;
+
+    if (themeModeToggle) {
+      const isDark = nextMode === "dark";
+      themeModeToggle.setAttribute("aria-pressed", String(isDark));
+      themeModeToggle.textContent = `Theme 1 Dark Mode: ${isDark ? "On" : "Off"}`;
+    }
+
+    try {
+      sessionStorage.setItem(themeModeStorageKey, nextMode);
+    } catch (error) {
+      // Dark mode should still work even if storage is unavailable.
+    }
+  };
 
   const setTheme = (theme) => {
     lab.dataset.theme = theme;
@@ -18,6 +37,10 @@
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     });
+
+    if (themeModeToggle) {
+      themeModeToggle.hidden = theme !== "warm-editorial";
+    }
 
     try {
       sessionStorage.setItem(themeStorageKey, theme);
@@ -34,6 +57,15 @@
     }
   })();
 
+  const initialThemeMode = (() => {
+    try {
+      return sessionStorage.getItem(themeModeStorageKey) || lab.dataset.themeMode;
+    } catch (error) {
+      return lab.dataset.themeMode;
+    }
+  })();
+
+  setThemeMode(initialThemeMode);
   setTheme(initialTheme);
 
   switcherButtons.forEach((button) => {
@@ -41,6 +73,13 @@
       setTheme(button.dataset.themeOption);
     });
   });
+
+  if (themeModeToggle) {
+    themeModeToggle.addEventListener("click", () => {
+      const nextMode = lab.dataset.themeMode === "dark" ? "light" : "dark";
+      setThemeMode(nextMode);
+    });
+  }
 
   if (previewMenuToggle && previewMenu) {
     previewMenuToggle.addEventListener("click", () => {

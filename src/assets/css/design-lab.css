@@ -83,6 +83,10 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+.lab-switcher__button--secondary[hidden] {
+  display: none;
+}
+
 .design-lab {
   --lab-bg: #f3eee3;
   --lab-surface: #fbf7ef;
@@ -637,6 +641,50 @@
 
 .design-lab[data-theme="warm-editorial"] .lab-quote cite {
   color: rgba(255, 255, 255, 0.72);
+}
+
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] {
+  --lab-bg: #0d0d0d;
+  --lab-surface: #121212;
+  --lab-surface-strong: #171717;
+  --lab-panel: #121212;
+  --lab-border: rgba(255, 255, 255, 0.1);
+  --lab-border-strong: rgba(255, 255, 255, 0.16);
+  --lab-text: #ffffff;
+  --lab-muted: rgba(255, 255, 255, 0.68);
+  --lab-accent: #ffffff;
+  --lab-accent-soft: #1d1d1d;
+  --lab-shadow: none;
+}
+
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-preview,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-preview__header,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-hero__panel,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-summary-card,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-sidebar-card,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-module-card,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-pearl-card,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-mini-card,
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-closing {
+  background: #121212;
+}
+
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-section--teaching {
+  background: #111111;
+}
+
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-button {
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-quote {
+  background: #f9f9f9;
+  color: #0d0d0d;
+}
+
+.design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-quote cite {
+  color: rgba(13, 13, 13, 0.72);
 }
 
 .design-lab[data-theme="modern-fresh"] {
