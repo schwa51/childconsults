@@ -659,7 +659,8 @@
   --lab-text: #ffffff;
   --lab-muted: rgba(255, 255, 255, 0.68);
   --lab-accent: #ffffff;
-  --lab-accent-soft: #1d1d1d;
+  --lab-accent-soft: #4C5A6C;
+  /* --lab-accent-soft: #1d1d1d; */
   --lab-shadow: none;
 }
 
@@ -672,7 +673,8 @@
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-pearl-card,
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-mini-card,
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-closing {
-  background: #121212;
+  /*  background: #121212; */
+  background: #4C5A6C;
 }
 
 .design-lab[data-theme="warm-editorial"][data-theme-mode="dark"] .lab-section--teaching {
